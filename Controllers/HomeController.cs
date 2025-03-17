@@ -23,6 +23,11 @@ namespace UnityWeb.Controllers
             return View();
         }
 
+        public IActionResult Unity()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
