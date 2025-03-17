@@ -14,7 +14,26 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    ServeUnknownFileTypes = true, // Allow unknown extensions like .data
+    OnPrepareResponse = ctx =>
+    {
+        var path = ctx.File.Name;
+        if (path.EndsWith(".wasm"))
+        {
+            ctx.Context.Response.ContentType = "application/wasm";
+        }
+        else if (path.EndsWith(".data"))
+        {
+            ctx.Context.Response.ContentType = "application/octet-stream";
+        }
+        else if (path.EndsWith(".js"))
+        {
+            ctx.Context.Response.ContentType = "application/javascript";
+        }
+    }
+});
 
 app.UseRouting();
 

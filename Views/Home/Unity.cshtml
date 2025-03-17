@@ -5,3 +5,26 @@
 
 
 <h1>Page is done</h1>
+
+<link rel="shortcut icon" href="~/UnityEngine/TemplateData/favicon.ico" asp-append-version="true">
+<link rel="stylesheet" href="~/UnityEngine/TemplateData/style.css" asp-append-version="true">
+
+<div id="unity-container" class="unity-desktop">
+    <canvas id="unity-canvas" width=800 height=450 tabindex="-1"></canvas>
+    <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+        </div>
+    </div>
+    <div id="unity-warning"> </div>
+    <div id="unity-footer">
+        <div id="unity-logo-title-footer"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">NinjaShark</div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/UnityEngine/scripts.js" asp-append-version="true"></script>
+}
